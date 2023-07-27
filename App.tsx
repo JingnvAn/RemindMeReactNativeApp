@@ -6,9 +6,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import EventsPage from "./screens/EventsPage";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 
+
 function EventsScreen() {
     return (
-        <View>
+        <View style={styles.center}>
             <EventsPage/>
         </View>
     );
@@ -17,9 +18,9 @@ function EventsScreen() {
 function SettingsScreen() {
     return (
         <View style={styles.center}>
-            <Text>Settings!</Text>
+            <Text>hello</Text>
         </View>
-    );
+    );  
 }
 
 const Tab = createBottomTabNavigator();
@@ -30,14 +31,14 @@ export default function App() {
             <Tab.Navigator
                 initialRouteName='Events'
                 screenOptions={({ route}) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
+                    tabBarIcon: ({ focused, size }) => {
                         let iconName;
 
                         if (route.name === 'Events') {
                             iconName = focused ? 'calendar' : 'calendar-outline';
                         } else if (route.name === 'Settings') {
                             iconName = focused ? 'settings' : 'settings-outline';
-                        }
+                        } 
                         return <Ionicons name={iconName} size={size} color={Colors.primary} />;
                     },
                     tabBarActiveTintColor: Colors.primary,
@@ -45,6 +46,7 @@ export default function App() {
                 })}>
                 <Tab.Screen name="Events" component={EventsScreen} />
                 <Tab.Screen name="Settings" component={SettingsScreen} />
+                
             </Tab.Navigator>
         </NavigationContainer>
     );

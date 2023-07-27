@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {Text, View, StyleSheet, Modal, Alert, Pressable, Platform} from 'react-native';
+import {Text, View, StyleSheet, Modal, Alert, Pressable, Platform, TextInput} from 'react-native';
+import InputBox from '../components/InputBox';
 
 const EventsPage = () => {
     const [modalVisible, setModalVisible] = useState(false);   
@@ -17,6 +18,11 @@ const EventsPage = () => {
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
                 <Text style={styles.modalText}>Create A New Reminder 🔔</Text>
+                <View>
+                    <InputBox emoji={"📌"} placeHolderText={"what's this reminder about?"}/>
+                    <InputBox emoji={"📆"} placeHolderText={"When do you want to be reminded?"}/>
+                </View>
+                <View style={{ marginVertical: 25 }} />
                 <View style={styles.modalButtons}>
                     <Pressable
                         style={[styles.button, styles.buttonCancel]}
